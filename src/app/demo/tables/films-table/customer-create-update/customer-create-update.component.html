@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Customer</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <mat-dialog-content>
+
+    <img mat-card-image src="{{defaults.Poster}}">
+    <br>
+    <br>
+    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="24px">
+      <mat-form-field fxFlex>
+        <mat-placeholder>Загаловок</mat-placeholder>
+        <input type="text" formControlName="Title" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="person">
+
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="24px">
+
+        <mat-form-field fxFlex>
+          <mat-placeholder>Год</mat-placeholder>
+          <input type="text" formControlName="Year" matInput>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-placeholder>Тип</mat-placeholder>
+          <input type="text" formControlName="Type" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button *ngIf="isCreateMode()" mat-button [disabled]="!form.valid">CREATE CUSTOMER</button>
+    <button *ngIf="isUpdateMode()" mat-button [disabled]="!form.valid">UPDATE CUSTOMER</button>
+  </mat-dialog-actions>
+</form>
